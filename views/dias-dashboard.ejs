@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/css/uikit.min.css"/>
+        <link href="css/styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="uk-container uk-margin-large-top">
+            <div class="uk-text-center uk-margin-large-bottom">
+                <h1>Press Releases for Approval</h1>        
+            </div>
+            <div class="uk-grid-medium uk-child-width-1-2@s uk-child-width-1-3@m uk-text-center" uk-grid>
+                <% releases.forEach(release => { %>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body">
+                            <h3 class="uk-card-title"><%= release.title %> </h3>
+                            <p><%= release.body %> </p>
+                            <p><%= release.createdAt %></p>
+                            <form method="POST" action="/pressrelease/approve">
+                                <input name="id" hidden="true" value=<%= release.id %>> 
+                                <button class="uk-button uk-button-danger">Approve</button>
+                            </form>
+                        </div>
+                    </div>                    
+                <% }) %>
+            </div>
+
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit.min.js" 
+                integrity="sha512-OZ9Sq7ecGckkqgxa8t/415BRNoz2GIInOsu8Qjj99r9IlBCq2XJlm9T9z//D4W1lrl+xCdXzq0EYfMo8DZJ+KA==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit-icons.min.js" 
+                integrity="sha512-hcz3GoZLfjU/z1OyArGvM1dVgrzpWcU3jnYaC6klc2gdy9HxrFkmoWmcUYbraeS+V/GWSgfv6upr9ff4RVyQPw==" crossorigin="anonymous"></script>
+    </body>
+</html>
