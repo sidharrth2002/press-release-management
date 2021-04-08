@@ -8,6 +8,9 @@
         <link href="css/styles.css" rel="stylesheet">
     </head>
     <body>
+        <div class="uk-flex uk-flex-right uk-margin-large-right uk-margin-large-top">
+            <a href="/auth/logout"><button class="uk-button uk-button-primary">Logout</button></a>
+        </div>
         <div class="uk-container uk-margin-large-top">
             <div class="uk-text-center uk-margin-large-bottom">
                 <h1>Press Releases for Approval</h1>        
@@ -19,8 +22,7 @@
                             <h3 class="uk-card-title"><%= release.title %> </h3>
                             <p><%= release.body %> </p>
                             <p><%= release.createdAt %></p>
-                            <form method="POST" action="/pressrelease/approve">
-                                <input name="id" hidden="true" value=<%= release.id %>> 
+                            <form method="POST" action="/pressrelease/approve/<%= release.id %>">
                                 <button class="uk-button uk-button-danger">Approve</button>
                             </form>
                         </div>

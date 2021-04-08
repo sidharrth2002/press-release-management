@@ -6,14 +6,12 @@ const LocalStrategy = require('passport-local').Strategy
 const session = require('express-session')
 const ejs = require('ejs');
 const path = require('path');
-
+const isAuthenticated = require('./middleware/checkAuth')
 const pressreleasecontroller = require('./controllers/pressrelease.controller')
 
 require('dotenv').config()
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-
-// require('./config/passport')(passport);
 
 app.use(session({
     secret: 'test secret',
@@ -25,12 +23,24 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+require('./config/passport')(passport);
+
 app.set('view engine', 'ejs');
 
 app.use('/pressrelease', require('./routes/pressrelease.route'));
+app.use('/auth', require('./routes/auth.route'))
 
 app.get('/login', (req, res) => {
-    res.render('login')
+    res.render('login' , {
+        message: ''
+    })
+})
+
+app.get('/login-failure', (req, res) => {
+    res.render('login', {
+        message: 'Wrong Credentials'
+    })
 })
 
 app.get('/dashboard', async(req, res) => {
@@ -41,7 +51,7 @@ app.get('/dashboard', async(req, res) => {
     })
 })
 
-app.get('/dias-dashboard', async(req, res) => {
+app.get('/dias-dashboard', isAuthenticated, async(req, res) => {
     const releases = await pressreleasecontroller.getUnapproved()
     console.log(releases)
     res.render('dias-dashboard', {

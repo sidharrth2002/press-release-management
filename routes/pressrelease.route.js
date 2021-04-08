@@ -9,7 +9,7 @@ router.post('/', (req, res) => {
     .create(req.body)
     .then(pressrelease => {
         console.log(pressrelease)
-        res.status(201).send(pressrelease)
+        res.redirect('/dashboard')
     })
 })
 
@@ -23,12 +23,12 @@ router.get('/', (req, res) => {
     .catch(error => res.status(400).send(error))
 })
 
-router.post('/approve', (req, res) => {
-    console.log(req.body);
+router.post('/approve/:id', (req, res) => {
+    console.log(req.params.id);
     pressreleases
     .update({ approved: true }, {
         where: {
-            id: parseInt(req.body.id)
+            id: parseInt(req.params.id)
         }
     })
     res.redirect('/dias-dashboard')
