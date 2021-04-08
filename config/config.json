@@ -12,6 +12,11 @@
   },
   "production": {
     "ssl": true,
+    "extra": {
+      "ssl": {
+        "rejectUnauthorized": false
+      }
+    },    
     "dialect": "postgres",
     "use_env_variable": "DATABASE_URL"
   }
