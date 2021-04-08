@@ -7,9 +7,11 @@ const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
+require('dotenv').config()
 
 let sequelize;
 if (config.use_env_variable) {
+  console.log(process.env.DATABASE_URL)
   sequelize = new Sequelize(process.env.DATABASE_URL,  {
     dialect: "postgres",
     protocol: "postgres",

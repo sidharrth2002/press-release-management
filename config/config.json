@@ -1,6 +1,12 @@
 {
   "development": {
-    "use_env_variable": "DATABASE_URL"
+    "username": "SidharrthNagappan",
+    "password": null,
+    "database": "pressreleases-dev",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres",
+    "use-env-variable": true
   },
   "test": {
     "username": "SidharrthNagappan",

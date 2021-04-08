@@ -9,10 +9,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       title: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       body: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       from: {
         type: Sequelize.STRING
@@ -28,6 +28,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
+    });
+    await queryInterface.changeColumn('pressreleases','body', {
+      type:Sequelize.TEXT
     });
   },
   down: async (queryInterface, Sequelize) => {

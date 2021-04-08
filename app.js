@@ -10,7 +10,6 @@ const moment = require('moment');
 const isAuthenticated = require('./middleware/checkAuth')
 const pressreleasecontroller = require('./controllers/pressrelease.controller')
 
-require('dotenv').config()
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
@@ -46,6 +45,7 @@ app.get('/login-failure', (req, res) => {
 
 app.get('/dashboard', async(req, res) => {
     const allreleases = await pressreleasecontroller.getPressReleases()
+    allreleases.sort((a, b) => (a.createdAt < b.createdAt) ? 1 : -1)
     console.log(allreleases)
     res.render('dashboard', {
         allreleases,
@@ -85,13 +85,6 @@ app.get('/submit', (req, res) => {
             "Mahathir Mohamed",
             "Darell Leiking"
         ]
-    })
-})
-
-app.get('/edit/:id', async(req, res) => {
-    let release = await pressreleasecontroller.getPressRelease(parseInt(req.params.id));
-    res.render('editupdate', {
-        release
     })
 })
 

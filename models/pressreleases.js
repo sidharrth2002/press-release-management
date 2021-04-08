@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   pressreleases.init({
-    title: DataTypes.STRING,
-    body: DataTypes.STRING,
+    title: DataTypes.TEXT,
+    body: DataTypes.TEXT,
     from: DataTypes.STRING,
     approved: {
       type: DataTypes.BOOLEAN,
