@@ -16,7 +16,9 @@
     "database": "pressreleases-production",
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "ssl": true,
+    "ssl": {
+      "rejectUnauthorized": false
+    },
     "dialectOptions": {
       "ssl": {"require":true }
     },
