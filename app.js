@@ -6,6 +6,7 @@ const LocalStrategy = require('passport-local').Strategy
 const session = require('express-session')
 const ejs = require('ejs');
 const path = require('path');
+const moment = require('moment');
 const isAuthenticated = require('./middleware/checkAuth')
 const pressreleasecontroller = require('./controllers/pressrelease.controller')
 
@@ -47,7 +48,8 @@ app.get('/dashboard', async(req, res) => {
     const allreleases = await pressreleasecontroller.getPressReleases()
     console.log(allreleases)
     res.render('dashboard', {
-        allreleases
+        allreleases,
+        date: moment().format('MMMM Do YYYY, h:mm:ss a')
     })
 })
 
@@ -86,8 +88,16 @@ app.get('/submit', (req, res) => {
     })
 })
 
+app.get('/edit/:id', async(req, res) => {
+    let release = await pressreleasecontroller.getPressRelease(parseInt(req.params.id));
+    res.render('editupdate', {
+        release
+    })
+})
+
 app.get('/', (req, res) => {
     console.log('Everything is working fine');
+    res.redirect('/dashboard')
 })
 
 const PORT = process.env.PORT || 3000

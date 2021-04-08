@@ -19,6 +19,14 @@ const controllers = {
         })
         console.log(releases);
         return releases
+    },
+    async getPressRelease(id) {
+        const release = await pressreleases.findByPk(id);
+        if(!release) {
+            return null
+        } else {
+            return release
+        }
     }
 }
 

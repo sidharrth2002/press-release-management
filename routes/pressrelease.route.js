@@ -23,10 +23,22 @@ router.get('/', (req, res) => {
     .catch(error => res.status(400).send(error))
 })
 
-router.post('/approve/:id', (req, res) => {
+router.post('/approve/:id', async(req, res) => {
     console.log(req.params.id);
-    pressreleases
+    await pressreleases
     .update({ approved: true }, {
+        where: {
+            id: parseInt(req.params.id)
+        }
+    })
+    
+    res.redirect('/dias-dashboard')
+})
+
+router.post('/update/:id', async(req, res) => {
+    console.log(req.params.id)
+    await pressreleases
+    .update({ title: req.body.title, body: req.body.body }, {
         where: {
             id: parseInt(req.params.id)
         }

@@ -11,7 +11,7 @@
         <div class="uk-flex uk-flex-right uk-margin-large-right uk-margin-large-top">
             <a href="/auth/logout"><button class="uk-button uk-button-primary">Logout</button></a>
         </div>
-        <div class="uk-container uk-margin-large-top">
+        <div class="uk-container">
             <div class="uk-text-center uk-margin-large-bottom">
                 <h1>Press Releases for Approval</h1>        
             </div>
@@ -20,11 +20,17 @@
                     <div>
                         <div class="uk-card uk-card-default uk-card-body">
                             <h3 class="uk-card-title"><%= release.title %> </h3>
+                            <h4 class="uk-card-subtitle">From: <%= release.from %></h4>
                             <p><%= release.body %> </p>
                             <p><%= release.createdAt %></p>
-                            <form method="POST" action="/pressrelease/approve/<%= release.id %>">
-                                <button class="uk-button uk-button-danger">Approve</button>
-                            </form>
+                            <div class="uk-flex uk-flex-around">
+                                <form method="POST" action="/pressrelease/approve/<%= release.id %>">
+                                    <button class="uk-button uk-button-danger">Approve</button>
+                                </form>
+                                <div>
+                                    <a href="/edit/<%= release.id %>"><button class="uk-button uk-button-success">Edit</button></a>    
+                                </div>
+                            </div>
                         </div>
                     </div>                    
                 <% }) %>

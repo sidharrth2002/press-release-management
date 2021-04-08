@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/css/uikit.min.css"/>
+        <link href="css/styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="uk-text-center uk-margin-large-top">
+            <h1>Edit Press Release</h1>
+        </div>
+
+        <div class="uk-container uk-container-center uk-flex uk-flex-center">
+            <% if (release) { %>
+             
+            <form method="POST" action="/pressrelease/update/<%= release.id %>" class="uk-form-stacked uk-width-2-3 uk-container-center">
+
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Title</label>
+                    <div class="uk-form-controls">
+                        <input name="title" class="uk-input" id="form-stacked-text" type="text" value="<%= release.title %> ">
+                    </div>
+                </div>
+            
+                <div class="uk-margin">
+                    <label class="uk-form-label">Type Press Release Below</label>
+                    <textarea name="body" class="uk-textarea" rows="5" placeholder="Textarea"><%= release.body %></textarea>
+                </div>
+            
+                <input type="submit" class="uk-button uk-button-primary">
+            </form>  
+            <% } %>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit.min.js" 
+                integrity="sha512-OZ9Sq7ecGckkqgxa8t/415BRNoz2GIInOsu8Qjj99r9IlBCq2XJlm9T9z//D4W1lrl+xCdXzq0EYfMo8DZJ+KA==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit-icons.min.js" 
+                integrity="sha512-hcz3GoZLfjU/z1OyArGvM1dVgrzpWcU3jnYaC6klc2gdy9HxrFkmoWmcUYbraeS+V/GWSgfv6upr9ff4RVyQPw==" crossorigin="anonymous"></script>
+    </body>
+</html>
