@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const pressreleases = require('../models').pressreleases 
+const pressreleasecontroller = require('../controllers/pressrelease.controller')
 
 router.post('/', (req, res) => {
     console.log(req.body)
