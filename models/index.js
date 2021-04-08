@@ -15,6 +15,9 @@ if (config.use_env_variable) {
     protocol: "postgres",
     port: 5432,
     host: "<heroku host>",
+    ssl: {
+      rejectUnauthorized: false
+    },
     logging: true //false
  });
 } else {
