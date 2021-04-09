@@ -21,7 +21,7 @@
                 <div class="uk-margin">
                     <label class="uk-form-label" for="form-stacked-text">Title</label>
                     <div class="uk-form-controls">
-                        <input name="title" class="uk-input" id="form-stacked-text" type="text" value="<%= release.title %> ">
+                        <input name="title" class="uk-input" id="form-stacked-text" type="text" value="<%= release.title %>" required>
                     </div>
                 </div>
             
@@ -40,7 +40,16 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit-icons.min.js" 
                 integrity="sha512-hcz3GoZLfjU/z1OyArGvM1dVgrzpWcU3jnYaC6klc2gdy9HxrFkmoWmcUYbraeS+V/GWSgfv6upr9ff4RVyQPw==" crossorigin="anonymous"></script>
         <script>
-                CKEDITOR.replace( 'htmleditor' );
+            CKEDITOR.replace( 'htmleditor' );
+            //check the ckeditor
+            function checkData() {
+                if(CKEDITOR.instances.htmleditor.getData().length > 0) {
+                    return true;
+                } else {
+                    window.alert('Please enter body of the press release.')
+                    return false;
+                }
+            }
         </script>
         </body>
 </html>

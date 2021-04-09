@@ -5,7 +5,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/css/uikit.min.css"/>
-        <link href="css/styles.css" rel="stylesheet">
         <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
     </head>
     <body>
@@ -14,12 +13,12 @@
         </div> 
 
         <div class="uk-container uk-container-center uk-flex uk-flex-center">
-            <form method="POST" action="/pressrelease" class="uk-form-stacked uk-width-2-3 uk-container-center">
+            <form onsubmit="return checkData()" method="POST" action="/pressrelease" class="uk-form-stacked uk-width-2-3 uk-container-center">
 
                 <div class="uk-margin">
                     <label class="uk-form-label" for="form-stacked-text">Title</label>
                     <div class="uk-form-controls">
-                        <input name="title" class="uk-input" id="form-stacked-text" type="text" placeholder="Title of Press Release">
+                        <input name="title" class="uk-input" id="form-stacked-text" type="text" placeholder="Title of Press Release" required>
                     </div>
                 </div>
             
@@ -36,7 +35,7 @@
             
                 <div class="uk-margin">
                     <label class="uk-form-label">Type Press Release Below</label>
-                    <textarea id="htmleditor" rows="3" name="body" class="uk-textarea" rows="5" placeholder="Textarea"></textarea>
+                    <textarea id="htmleditor" rows="3" name="body" class="uk-textarea" rows="5" placeholder="Textarea" required></textarea>
                 </div>
             
                 <input type="submit" class="uk-button uk-button-primary">
@@ -55,6 +54,23 @@
                 integrity="sha512-hcz3GoZLfjU/z1OyArGvM1dVgrzpWcU3jnYaC6klc2gdy9HxrFkmoWmcUYbraeS+V/GWSgfv6upr9ff4RVyQPw==" crossorigin="anonymous"></script>
         <script>
             CKEDITOR.replace( 'htmleditor' );
+            //check the ckeditor
+            function checkData() {
+                if(CKEDITOR.instances.htmleditor.getData().length > 0) {
+                    return true;
+                } else {
+                    window.alert('Please enter body of the press release.')
+                    return false;
+                }
+            }
         </script>
-            </body>
+        </body>
 </html>
+
+<!-- console.log('inside check')
+var _contents = CKEDITOR.instances.editor1.document.getBody().getText();
+console.log(_contents)
+if (_contents == '') {
+    alert('Please provide the contents.') ;
+}
+e.preventDefault() -->
