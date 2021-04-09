@@ -19,7 +19,7 @@
             <div class="uk-grid-medium uk-grid-match uk-child-width-1-1@s uk-child-width-1-2@m uk-text-center" uk-grid>
                 <% allreleases.forEach(release => { %>
                     <div>
-                        <div class="uk-card uk-card-default uk-card-body">
+                        <div class="uk-card uk-card-default uk-card-body uk-text-break">
                             <h3 class="uk-card-title"><%= release.title %> </h3>
                             <p><%- release.body %> </p>
                             <p><%= release.createdAt %></p>

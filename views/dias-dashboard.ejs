@@ -18,10 +18,10 @@
             <div class="uk-grid-medium uk-grid-match uk-child-width-1-1@s uk-child-width-1-2@m uk-text-center" uk-grid>
                 <% releases.forEach(release => { %>
                     <div>
-                        <div class="uk-card uk-card-default uk-card-body">
+                        <div class="uk-card uk-card-default uk-card-body uk-text-break">
                             <h3 class="uk-card-title"><%= release.title %> </h3>
                             <h4 class="uk-card-subtitle">From: <%= release.from %></h4>
-                            <p><%- release.body %> </p>
+                                <p><%- release.body %> </p>
                             <p><%= release.createdAt %></p>
                             <div class="uk-flex uk-flex-around">
                                 <form method="POST" action="/pressrelease/approve/<%= release.id %>">
