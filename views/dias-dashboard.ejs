@@ -19,8 +19,8 @@
                 <% releases.forEach(release => { %>
                     <div>
                         <div class="uk-card uk-card-default uk-card-body uk-text-break">
-                            <h3 class="uk-card-title"><%= release.title %> </h3>
-                            <h4 class="uk-card-subtitle">From: <%= release.from %></h4>
+                            <h3 class="uk-card-title uk-margin-remove-bottom"><%= release.title %> </h3>
+                            <h4 class="uk-card-subtitle uk-margin-remove-top">From: <%= release.from %></h4>
                                 <p><%- release.body %> </p>
                             <p><%= release.createdAt %></p>
                             <div class="uk-flex uk-flex-around">
