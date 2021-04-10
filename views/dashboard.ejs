@@ -16,12 +16,14 @@
                 <h1>All Press Releases | MONMUNC 2021</h1>
                 <h3>From the nation's leaders</h3>      
             </div>
-            <div class="uk-grid-medium uk-grid-match uk-child-width-1-1@s uk-child-width-1-2@m uk-text-center" uk-grid>
+            <div class="uk-grid-medium uk-grid-match uk-child-width-1-1@s uk-child-width-1-2@m" uk-grid>
                 <% allreleases.forEach(release => { %>
                     <div>
                         <div class="uk-card uk-card-default uk-card-body uk-text-break">
-                            <h3 class="uk-card-title uk-margin-remove-bottom"><%= release.title %> </h3>
-                            <h4 class="uk-card-subtitle uk-margin-remove-top">From: <%= release.from %></h4>
+                            <div>
+                                <h3 class="uk-card-title uk-margin-remove-bottom"><%= release.title %> </h3>
+                                <h4 class="uk-card-subtitle uk-margin-remove-top">From: <%= release.from %></h4>
+                            </div>
                             <p><%- release.body %> </p>
                             <p><%= release.createdAt %></p>
                         </div>
