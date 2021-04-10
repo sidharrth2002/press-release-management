@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/css/uikit.min.css"/>
-        <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
+        <script src="https://cdn.ckeditor.com/4.15.1/full-all/ckeditor.js"></script>
     </head>
     <body>
         <div class="uk-text-center uk-margin-large-top">
@@ -53,7 +53,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit-icons.min.js" 
                 integrity="sha512-hcz3GoZLfjU/z1OyArGvM1dVgrzpWcU3jnYaC6klc2gdy9HxrFkmoWmcUYbraeS+V/GWSgfv6upr9ff4RVyQPw==" crossorigin="anonymous"></script>
         <script>
-            CKEDITOR.replace( 'htmleditor' );
+            CKEDITOR.replace( 'htmleditor');
             //check the ckeditor
             function checkData() {
                 if(CKEDITOR.instances.htmleditor.getData().length > 0) {
