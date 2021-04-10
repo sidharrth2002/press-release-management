@@ -83,7 +83,8 @@ app.get('/submit', (req, res) => {
             "Gobind Singh Deo",
             "Syed Saddiq",
             "Mahathir Mohamed",
-            "Darell Leiking"
+            "Darell Leiking",
+            "Wong Chun Wai (The Star)- Journalist"
         ]
     })
 })
