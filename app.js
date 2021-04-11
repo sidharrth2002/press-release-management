@@ -84,6 +84,8 @@ app.get('/submit', (req, res) => {
             "Syed Saddiq",
             "Mahathir Mohamed",
             "Darell Leiking",
+            "Mohamad Sabu",
+            "Crisis Director a.k.a Kingmaker",
             "Wong Chun Wai (The Star)- Journalist"
         ]
     })
