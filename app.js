@@ -77,6 +77,7 @@ app.get('/submit', (req, res) => {
             "Dato' Haji Awang Hashim",
             "Dato' Sri Dr Haji Wan Junaidi Tuanku Jaafar",
             "Anwar Ibrahim",
+            "Wan Azizah",
             "Johari Abdul",
             "Lim Guan Eng",
             "M. Kulasegaran",
@@ -85,6 +86,15 @@ app.get('/submit', (req, res) => {
             "Mahathir Mohamed",
             "Darell Leiking",
             "Mohamad Sabu",
+            "Hannah Yeoh",
+            "Yeoh Bee Yin",
+            "Dato Sri Najib Tun Razak",
+            "Abdul Hadi Awang",
+            "Jeffrey Kitingan",
+            "Tun Samy Vellu",
+            "Mukhriz Mahathir",
+            "Shafie Apdal",
+            "Ahmad Zahid Hamidi",
             "Crisis Director a.k.a Kingmaker",
             "Wong Chun Wai (The Star)- Journalist"
         ]
